@@ -1,34 +1,19 @@
-  <div class="admin-welcome slim hidden-xs">
-        <div class="container">
-          <h2>ngCardExpanded</h2>
-        </div>
-  </div>
-    <br>
-    <br>
 
-          <div class="wrapper" #wrapper>
-            <div *ngFor="let factory of FactoryList"
-              (click)="clickFactory($event)"
-              class="col-xs-12 col-sm-4 col-md-3 col-lg-3 {{ factory.expanded ? 'details' : factory.open ? 'card open' : 'card'}}"
-              id="{{factory.name}}">
-              <div *ngIf="!factory.expanded">
-                <div class="card-title">{{factory.name}}</div>
-                <div class="card-body">
-                  <div class="card-img">
-                    <span class="{{factory.icon }}"></span>
-                  </div>
-                  <div class="card-desc">
-                    <p>
-                      {{factory.desc}} </p>
-                  </div>
-                </div>
-              </div>
-              <div *ngIf="factory.expanded">
-                {{factory.desc}}
-                <button (click)="deleteExpandedCard()" style="float: right">Close</button>
-              </div>
-            </div>
-          </div>
+<div class="wrapper" #wrapper>
+  <div *ngFor="let factory of FactoryList;"
+    (click)="clickFactory($event)"
+    class="{{ factory.expanded ? 'details' : factory.open ? 'card open' : 'card'}}"
+    id="{{factory.name}}">
+    <div *ngIf="!factory.expanded">
+      <b>{{ factory.name }}</b>
+    </div>
+    <div *ngIf="factory.expanded">
+      {{factory.desc}}
+      <button (click)="deleteExpandedCard()" style="float: right">Close</button>
+    </div>
+  </div>
+</div>
+
 
 
 
